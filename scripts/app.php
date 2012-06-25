@@ -13,6 +13,7 @@ use Silex\Provider\DoctrineServiceProvider;
 use Silex\Provider\MonologServiceProvider;
 
 use Symfony\Component\Translation\Loader\YamlFileLoader;
+use Tmpl\Provider\DoctrineORMProvider;
 
 $app = new Silex\Application();
 
@@ -58,6 +59,13 @@ $app->register(new DoctrineServiceProvider(), array(
     'host'      => $app['db.config.host'],
     'user'      => $app['db.config.user'],
     'password'  => $app['db.config.password'],
+  )
+));
+
+$app->register(new DoctrineORMProvider(), array(
+  'em.options'  => array(
+    'proxy_dir'       => APP_DIR . '/src/Tmpl/Proxy',
+    'proxy_namespace' => 'Tmpl\Proxy'
   )
 ));
 
