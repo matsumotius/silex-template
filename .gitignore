@@ -1,0 +1,7 @@
+*.swp
+/resources/tmp/*
+/tests/resources/tmp/*
+/cache/*
+/composer.phar
+/log/*
+/vendor/
